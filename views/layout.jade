@@ -1,0 +1,19 @@
+doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='/lib/bootstrap/dist/css/bootstrap.min.css')
+		link(rel='stylesheet', href='/stylesheets/custom.css')
+
+		script(type='text/javascript').
+			function displayImage(elem) {
+			console.log("diplay image");
+			var image = document.getElementById("productimg");
+			console.log("@@@@select this.data model: " + elem.options[elem.selectedIndex].getAttribute("data-imgurl"));
+			image.src = elem.options[elem.selectedIndex].getAttribute("data-imgurl");
+			};
+
+
+	body
+		block content

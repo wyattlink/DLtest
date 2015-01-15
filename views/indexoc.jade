@@ -1,0 +1,57 @@
+extends layout
+meta(name='viewport', content='width=device-width, initial-scale=1.0')
+
+
+block content
+	.row
+	.col-sm-12.container-fluid
+		| 
+		h1= title
+		p
+		.row
+			.col-xs-6.col-sm-5.imagebox
+				img#productimg.img-responsive(src='http://www.funelf.net/photos/Can%60t-you-do-anything-right.jpg')
+			.col-xs-4.col-sm-6
+				form.form-horizontal(role='form', action="/download", method="post")
+					.form-group
+						label.col-sm-2.control-label(for='productid') Model
+						.col-sm-4     
+							select#productid.form-control(name='productid', onChange='displayImage(this);')
+								each product in products
+									option(value=product.product_id, data-imgurl=product.image_url, data-myinfo="testString") #{product.product_name}
+						|   
+					.form-group
+						label.col-sm-2.control-label(for='username') Name
+						.col-sm-4     
+							input#username.form-control(name='username', type='text', placeholder='Enter Name')
+						|   
+					.form-group
+						label.col-sm-2.control-label(for='useremail') Email
+						.col-sm-4     
+							input#useremail.form-control(name='useremail', type='text', placeholder='Email')
+						|   
+					.form-group
+						label.col-sm-2.control-label(for='usergender') Model
+						.col-sm-4     
+							select#usergender.form-control(name='usergender')
+								option(value=0) male
+								option(value=1) femail
+						|   
+					.form-group
+						label.col-sm-2.control-label(for='usercompany') Company
+						.col-sm-4     
+							input#usercompany.form-control(name='usercompany', type='text', placeholder='Company')
+						|   
+					.form-group
+						label.col-sm-2.control-label(for='Country') Country
+						.col-sm-4     
+							select#Country.form-control(name='Country', selected=218)
+								each country in countries
+									option(value=country.country_id) #{country.short_name}
+						|   
+					.form-group
+						label.col-sm-2.control-label() 
+						.col-sm-4     
+							button.btn.btn-default(type='submit') Download
+					
+
